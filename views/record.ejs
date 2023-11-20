@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Record</title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        .err {
+            color: red;
+        }
+        .input {
+            border: 1px solid #d0d0d0 !important;
+            width: 90%!important;
+            height: 32px;
+            padding-left: 10px;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+        .input:focus{
+            outline: none;
+        }
+        input[type='submit']{
+            padding: 0 20px!important;
+        }
+        td:first-child {
+            width: 20% !important;
+        }
+    </style>
+</head>
+<body>
+<div class="top-box">
+    <div id="nav">
+        <div id="nav-item">
+            <%
+            if(nick) { %>
+                Welcome, <%= nick %>. &nbsp;&nbsp;  <a href="index">Home</a> | <a href="record">Record</a> | <a href="logout">Logout</a>
+            <%}else{
+
+            %>
+                <a href="#">Register</a> | <a href="login">Login</a>
+            <%
+            }
+            %>
+        </div>
+    </div>
+</div>
+
+<div id="main">
+    <div class="content">
+        <h3>
+            <%
+                if(todo){
+                    %>
+                    Update
+            <%
+                }else {
+
+                    %> Record<%
+                }
+            %>
+            </h3>
+        <form action="record" method="post">
+            <table>
+
+                <tr>
+                    <td>
+                        <label>
+                            <%
+                            if(todo){
+                            %>
+                                <input type="hidden" name="id" value="<%=todo.id%>">
+                                <textarea name="content" class="input" style="height: 180px"><%=todo.content%></textarea>
+                            <%
+                            }else {
+
+                            %> <textarea name="content" class="input" style="height: 180px"></textarea><%
+                            }
+                            %>
+
+                            <%=err%>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <%
+                        if(todo){
+                        %>
+                            <input type="submit" value="Update">
+                        <%
+                        }else {
+
+                        %> <input type="submit" value="Save"><%
+                        }
+                        %>
+
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

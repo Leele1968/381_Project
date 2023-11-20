@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        .err {
+            color: red;
+        }
+        .input {
+            border: 1px solid #d0d0d0 !important;
+            width: 60%!important;
+            height: 32px;
+            padding-left: 10px;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+        .input:focus{
+            outline: none;
+        }
+        input[type='submit']{
+            padding: 0 20px!important;
+        }
+    </style>
+</head>
+<body>
+<div class="top-box">
+    <div id="nav">
+        <div id="nav-item">
+            <a href="register">Register</a> | <a href="login">Login</a>
+        </div>
+    </div>
+</div>
+
+<div id="main">
+    <div class="content">
+        <h3>Login</h3>
+        <form action="login" method="post">
+            <table>
+                <tr>
+                    <td >
+                        Account
+                    </td>
+                    <td>
+                        <label>
+                            <input type="text" name="account"  class="input"/>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Password
+                    </td>
+                    <td>
+                        <label>
+                            <input type="password" name="password" class="input" />
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                    </td>
+                    <td >
+                        <input type="submit" value="Login">     <span class="err"><%= err %></span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

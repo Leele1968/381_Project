@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<div class="top-box">
+    <div id="nav">
+        <div id="nav-item">
+            <%
+                if(nick) { %>
+                    Welcome, <%= nick %>. &nbsp;&nbsp;  <a href="record">Record</a> | <a href="logout">Logout</a>
+                <%}else{
+
+                  %>
+                    <a href="#">Register</a> | <a href="login">Login</a>
+                <%
+                }
+            %>
+        </div>
+
+    </div>
+</div>
+
+<div id="main">
+    <div class="content">
+        <label>
+            <form action="index" method="get">
+                <input type="text" name="keyword" value="<%=keyword%>" placeholder="Search for keywords quickly" />
+                <input type="submit" value="Search"/>
+            </form>
+        </label>
+    </div>
+
+    <%
+        for (var i = 0; i < todoList.length ; i++) {
+            %>
+        <div class="content">
+
+            <span class="time"><%=todoList[i].created_time.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });%></span> &nbsp;&nbsp;<a href="update?_id=<%=todoList[i]._id%>" style="color: #0066cc">update</a> | <a href="del?_id=<%=todoList[i]._id%>" style="color: red;">del</a>
+            <p><%=todoList[i].content%></p>
+        </div>
+
+    <%    }
+    %>
+</div>
+</body>
+</html>
